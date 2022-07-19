@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/DesouzaEdu/Desafio-XP/issues"
   },
-  "homepage": "https://github.com/DesouzaEdu/Desafio-XP#readme"
+  "homepage": "https://github.com/DesouzaEdu/Desafio-XP#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
 }
