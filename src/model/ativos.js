@@ -1,6 +1,6 @@
 const connection = require('./connection');
 
-const getClientsById = async (id) => {
+const getClients = async (id) => {
     const [result] = await 
     connection.execute(`
     SELECT cliente_id, ativo_id, quantidade, valor 
