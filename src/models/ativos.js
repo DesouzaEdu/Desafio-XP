@@ -11,4 +11,14 @@ const getClients = async (id) => {
     return result;
 };
 
-module.exports = { getClients };
+const getAssets = async (id) => {
+    const [result] = await 
+    connection.execute(`
+    SELECT * 
+    FROM DbInvest.ativos
+    where id = ?;`, [id]);
+    return result;
+};
+
+
+module.exports = { getClients, getAssets };
