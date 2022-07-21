@@ -14,7 +14,7 @@ CREATE TABLE cliente (
 CREATE TABLE ativos (
     id INT NOT NULL auto_increment,
     nome VARCHAR(30) NOT NULL,
-    quantidade INT NOT NULL,
+    quantidade_disponivel INT NOT NULL,
     valor DECIMAL (8,2) NOT NULL,
     PRIMARY KEY(id)
 )  ENGINE=INNODB;
@@ -40,7 +40,7 @@ INSERT INTO DbInvest.cliente (nome, saldo) VALUES
     ("Guilherme Benchimol", 1000000.5),
     ("Thiago Maffra", 500000.5);
 
-INSERT INTO DbInvest.ativos  (nome, quantidade, valor) VALUES
+INSERT INTO DbInvest.ativos  (nome, quantidade_disponivel, valor) VALUES
     ("XPBR31", 31000, 100.51),
     ("Bitcoin", 20000000, 127167.50),
     ("Tesouro Selic", 24000000, 11892.07);

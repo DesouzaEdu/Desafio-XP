@@ -11,4 +11,14 @@ const getClientsById = async (id) => {
     }));
 };
 
-module.exports = { getClientsById };
+const getAssetsById = async (id) => {
+    const arrAssets = await ativos.getAssets(id);
+
+    return arrAssets.map((item) => ({
+        CodAtivo: item.id,
+        QtdeAtivo: item.quantidade_disponivel,
+        Valor: item.valor,
+    }));
+};
+
+module.exports = { getClientsById, getAssetsById };
