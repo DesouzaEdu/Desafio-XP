@@ -9,9 +9,11 @@ const buyInvestment = async ({ codCliente, codAtivo, qtdeAtivo }, res) => {
     };
     const hasAsset = await investment.hasThisAsset(codCliente, codAtivo);
     if (hasAsset.length === 0) {
-      return investment.addWallet(qtdeAtivo, codCliente, codAtivo);
+      investment.addWallet(qtdeAtivo, codCliente, codAtivo);
+      return { status: 201 };
     }
-    return investment.updateWallet(qtdeAtivo, codCliente, codAtivo);
+    investment.updateWallet(qtdeAtivo, codCliente, codAtivo);
+    return { status: 200 };
 };
 
 
