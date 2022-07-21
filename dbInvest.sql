@@ -7,6 +7,7 @@ USE DbInvest;
 CREATE TABLE cliente (
     id INT NOT NULL auto_increment,
     nome VARCHAR(30) NOT NULL,
+    saldo DECIMAL (10,2) NOT NULL,
     PRIMARY KEY(id)
 ) ENGINE=INNODB;
 
@@ -33,10 +34,10 @@ CREATE TABLE carteira (
 
 SET SQL_SAFE_UPDATES = 0;
 
-INSERT INTO DbInvest.cliente (nome) VALUES
-    ("Eduardo de Souza"),
-    ("Guilherme Benchimol"),
-    ("Thiago Maffra");
+INSERT INTO DbInvest.cliente (nome, saldo) VALUES
+    ("Eduardo de Souza", 0.99),
+    ("Guilherme Benchimol", 1000000.5),
+    ("Thiago Maffra", 500000.5);
 
 INSERT INTO DbInvest.ativos  (nome, valor) VALUES
     ("XPBR31", 100.51),
