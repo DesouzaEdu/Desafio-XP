@@ -1,6 +1,6 @@
 const express = require('express');
 
-const { getClientsById  } = require('../services/products');
+const { getClientsById  } = require('../services/ativos');
 
 const ativosRouter = express.Router();
 
