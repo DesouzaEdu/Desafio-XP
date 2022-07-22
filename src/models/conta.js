@@ -8,4 +8,13 @@ const getAccount = async (id) => {
     return result;
 };
 
-module.exports = { getAccount };
+const updateBalance = async (saldo, id) => {
+    const [result] = await 
+    connection.execute(`UPDATE DbInvest.cliente
+    SET saldo = ?
+    WHERE id = ? 
+    ;`, [saldo, id]);
+    return result;
+};
+
+module.exports = { getAccount, updateBalance };
