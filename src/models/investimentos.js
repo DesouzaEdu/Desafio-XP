@@ -25,6 +25,15 @@ const updateWallet = async (quantity, clientId, assetId) => {
     return result;
 };
 
+const updateAsset = async (quantity, assetId) => {
+    const [result] = await 
+    connection.execute(`UPDATE DbInvest.ativos
+    SET quantidade_disponivel = ?
+    WHERE id = ?
+    ;`, [quantity, assetId]);
+    return result;
+};
+
 const addWallet = async (quantity, clientId, assetId) => {
     const [result] = await 
     connection.execute(`INSERT INTO DbInvest.carteira (cliente_id, ativo_id, quantidade) VALUES
@@ -38,4 +47,4 @@ const deleteWallet = (clientId, assetId) => {
 
 
 
-module.exports = { getInvestedAsset, hasThisAsset, updateWallet, addWallet, deleteWallet };
+module.exports = { getInvestedAsset, hasThisAsset, updateWallet, addWallet, deleteWallet, updateAsset };

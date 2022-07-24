@@ -9,7 +9,7 @@ investimentosRouter.post('/comprar', async (req, res) => {
     if (resp.message) {
         return res.status(resp.status).json({message: resp.message});
     }
-    res.status(newBuy.status).end();
+    res.status(resp.status).end();
 });
 
 investimentosRouter.post('/vender', async (req, res) => {
@@ -17,7 +17,7 @@ investimentosRouter.post('/vender', async (req, res) => {
     if (resp.message) {
         return res.status(resp.status).json({message: resp.message});
     }
-    res.status(newSell.status).end();
+    res.status(resp.status).end();
 });
 
 module.exports = investimentosRouter;

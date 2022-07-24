@@ -12,7 +12,7 @@ const getAccountById = async (id) => {
 const deposit = async ({CodCliente: id, valor}) => {
     const [account] = await conta.getAccount(id);
     const { saldo: saldoAtual } = account;
-    const saldo = parseInt(saldoAtual, 10) + valor;
+    const saldo = parseFloat(saldoAtual) + valor;
     conta.updateBalance(saldo, id);
     return { status: 200 };
 };
@@ -20,7 +20,7 @@ const deposit = async ({CodCliente: id, valor}) => {
 const withdraw = async ({CodCliente: id, valor}) => {
     const [account] = await conta.getAccount(id);
     let { saldo: saldoAtual } = account;
-    saldoAtual = parseInt(saldoAtual, 10);
+    saldoAtual = parseFlaot(saldoAtual);
     if (valor > saldoAtual) {
         return { status: 422, message: 'A quantidade a ser sacada não pode ser maior do que o saldo da conta'};
     }
