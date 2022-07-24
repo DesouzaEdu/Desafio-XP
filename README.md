@@ -62,6 +62,8 @@ Aqui você vai encontrar as tecnologias utilizadas no desenvolvimento dessa apli
    </div>     
   - Utilizado para o deploy da aplicação.
 
+# Banco de dados
+<img src="https://imgur.com/a/qVWy0ST" />
 
 
 
