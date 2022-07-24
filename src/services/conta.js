@@ -4,12 +4,12 @@ const getAccountById = async (id) => {
     const arrAccount = await conta.getAccount(id);
 
     return arrAccount.map((item) => ({
-        CodCliente: item.id,
+        codCliente: item.id,
         Saldo: item.saldo,
     }));
 };
 
-const deposit = async ({CodCliente: id, valor}) => {
+const deposit = async ({codCliente: id, valor}) => {
     const [account] = await conta.getAccount(id);
     const { saldo: saldoAtual } = account;
     const saldo = parseFloat(saldoAtual) + valor;
@@ -17,7 +17,7 @@ const deposit = async ({CodCliente: id, valor}) => {
     return { status: 200 };
 };
 
-const withdraw = async ({CodCliente: id, valor}) => {
+const withdraw = async ({codCliente: id, valor}) => {
     const [account] = await conta.getAccount(id);
     let { saldo: saldoAtual } = account;
     saldoAtual = parseFlaot(saldoAtual);

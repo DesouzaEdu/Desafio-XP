@@ -52,7 +52,7 @@ const buyInvestment = async ({ codCliente, codAtivo, qtdeAtivo }) => {
 
 const sellInvestment = async ({ codCliente, codAtivo, qtdeAtivo }) => {
     const [ asset ] = await investment.hasThisAsset(codCliente, codAtivo);
-    if ( asset && qtdeAtivo > asset.quantidade) {
+    if ( !asset || qtdeAtivo > asset.quantidade) {
       return { status: 422, message: 'A quantidade vendida não pode ser maior do que a quantidade que voce possui'};
     };
     const saldo = asset.quantidade - qtdeAtivo;
