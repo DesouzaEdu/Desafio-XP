@@ -15,8 +15,8 @@ contaRouter.get('/:id', validateToken, async (req, res) => {
 });
 
 contaRouter.post('/deposito', validateCodCliente, validateValor, async (req, res) => {
-    const {status} = await deposit(req.body);
-    res.status(status).end();
+    const resp = await deposit(req.body);
+    res.status(resp.status).json(resp.obj);
 });
 
 contaRouter.post('/saque', validateCodCliente, validateValor, async (req, res) => {
@@ -24,7 +24,7 @@ contaRouter.post('/saque', validateCodCliente, validateValor, async (req, res) =
     if (resp.message) {
         return res.status(resp.status).json({message: resp.message});
     }
-    res.status(resp.status).end();
+    res.status(resp.status).json(resp.obj);
 });
 
 module.exports = contaRouter;

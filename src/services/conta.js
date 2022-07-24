@@ -14,7 +14,7 @@ const deposit = async ({codCliente: id, valor}) => {
     const { saldo: saldoAtual } = account;
     const saldo = parseFloat(saldoAtual) + valor;
     conta.updateBalance(saldo, id);
-    return { status: 200 };
+    return { status: 200, obj: { saldo, id} };
 };
 
 const withdraw = async ({codCliente: id, valor}) => {
@@ -26,7 +26,7 @@ const withdraw = async ({codCliente: id, valor}) => {
     }
     const saldo = saldoAtual - valor;
     conta.updateBalance(saldo, id);
-    return { status: 200 };
+    return { status: 200, obj: { saldo, id} };
 };
 
 module.exports = { getAccountById, deposit, withdraw };

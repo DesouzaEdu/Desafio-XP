@@ -13,7 +13,7 @@ investimentosRouter.post('/comprar', validateToken, validateCodCliente, validate
     if (resp.message) {
         return res.status(resp.status).json({message: resp.message});
     }
-    res.status(resp.status).end();
+    res.status(resp.status).json(resp.obj);
 });
 
 investimentosRouter.post('/vender', validateToken,  validateCodCliente, validateCodAtivo, async (req, res) => {
@@ -21,7 +21,7 @@ investimentosRouter.post('/vender', validateToken,  validateCodCliente, validate
     if (resp.message) {
         return res.status(resp.status).json({message: resp.message});
     }
-    res.status(resp.status).end();
+    res.status(resp.status).json(resp.obj);
 });
 
 module.exports = investimentosRouter;
