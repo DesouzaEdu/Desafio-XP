@@ -38,7 +38,7 @@ CREATE TABLE carteira (
 SET SQL_SAFE_UPDATES = 0;
 
 INSERT INTO DbInvest.cliente (nome, usuario, senha, saldo) VALUES
-    ("Eduardo de Souza", "admin", "admin", 0.99),
+    ("Eduardo de Souza", "admin"criar visualizações de banco de dados, "admin", 0.99),
     ("Guilherme Benchimol", "gBench", "fundadorXP", 1000000.5),
     ("Thiago Maffra", "tMaffra", "CEOXP", 500000.5);
 
