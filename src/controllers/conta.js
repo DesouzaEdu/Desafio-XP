@@ -18,8 +18,11 @@ contaRouter.post('/deposito', validateValor, async (req, res) => {
 });
 
 contaRouter.post('/saque', validateValor, async (req, res) => {
-    const {status} = await withdraw(req.body, res);
-    res.status(status).end();
+    const resp = await withdraw(req.body);
+    if (resp.message) {
+        return res.status(resp.status).json({message: resp.message});
+    }
+    res.status(resp.status).end();
 });
 
 module.exports = contaRouter;
