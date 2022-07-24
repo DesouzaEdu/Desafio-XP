@@ -7,7 +7,7 @@ const getClientsById = async (id) => {
         CodCliente: item.cliente_id,
         CodAtivo: item.ativo_id,
         QtdeAtivo: item.quantidade,
-        Valor: item.valor,
+        Valor: parseFloat(item.valor),
     }));
 };
 
@@ -17,7 +17,7 @@ const getAssetsById = async (id) => {
     return arrAssets.map((item) => ({
         CodAtivo: item.id,
         QtdeAtivo: item.quantidade_disponivel,
-        Valor: item.valor,
+        Valor: parseFloat(item.valor),
     }));
 };
 
