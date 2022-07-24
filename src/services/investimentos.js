@@ -26,6 +26,7 @@ const setBalance = async (accountId, assetId, buyQuantity, operation ) => {
   let newBalance = saldo + amount;
   if(operation === 'buy') newBalance = saldo - amount;
   await account.updateBalance(newBalance, accountId);
+  return newBalance;
 } 
 
 const buyInvestment = async ({ codCliente, codAtivo, qtdeAtivo }) => {
@@ -45,9 +46,9 @@ const buyInvestment = async ({ codCliente, codAtivo, qtdeAtivo }) => {
     }    
     const saldo = hasAsset[0].quantidade + qtdeAtivo;
     await updateAssetService(qtdeAtivo, codAtivo, false);
-    await setBalance(codCliente, codAtivo, qtdeAtivo, 'buy');
     await investment.updateWallet(saldo, codCliente, codAtivo);
-    return { status: 200, obj: {saldo, codCliente, codAtivo} };
+    const newBalance = await setBalance(codCliente, codAtivo, qtdeAtivo, 'buy');
+    return { status: 200, obj: {saldo: newBalance, codCliente, codAtivo} };
 };
 
 const sellInvestment = async ({ codCliente, codAtivo, qtdeAtivo }) => {
@@ -62,8 +63,8 @@ const sellInvestment = async ({ codCliente, codAtivo, qtdeAtivo }) => {
     }
     await investment.updateWallet(saldo, codCliente, codAtivo);
     await updateAssetService(qtdeAtivo, codAtivo, true);
-    await setBalance(codCliente, codAtivo, qtdeAtivo, 'sell');
-    return { status: 200, obj: {saldo, codCliente, codAtivo} };
+    const newBalance = await setBalance(codCliente, codAtivo, qtdeAtivo, 'sell');
+    return { status: 200, obj: {saldo: newBalance, codCliente, codAtivo} };
 };
 
 
