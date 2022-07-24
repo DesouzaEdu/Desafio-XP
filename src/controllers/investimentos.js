@@ -4,10 +4,11 @@ const { buyInvestment, sellInvestment  } = require('../services/investimentos');
 
 const validateCodCliente = require('../middlewares/validateCodCliente');
 const validateCodAtivo = require('../middlewares/validateCodAtivo');
+const { validateToken } = require('../middlewares/validateToken');
 
 const investimentosRouter = express.Router();
 
-investimentosRouter.post('/comprar', validateCodCliente, validateCodAtivo, async (req, res) => {
+investimentosRouter.post('/comprar', validateToken, validateCodCliente, validateCodAtivo, async (req, res) => {
     const resp = await buyInvestment(req.body);
     if (resp.message) {
         return res.status(resp.status).json({message: resp.message});
@@ -15,7 +16,7 @@ investimentosRouter.post('/comprar', validateCodCliente, validateCodAtivo, async
     res.status(resp.status).end();
 });
 
-investimentosRouter.post('/vender',  validateCodCliente, validateCodAtivo, async (req, res) => {
+investimentosRouter.post('/vender', validateToken,  validateCodCliente, validateCodAtivo, async (req, res) => {
     const resp = await sellInvestment(req.body);
     if (resp.message) {
         return res.status(resp.status).json({message: resp.message});

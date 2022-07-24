@@ -8,13 +8,13 @@ const generateJWToken = (payload) => jwt.sign(payload, SECRET);
 
 const isAauthenticatedToken = (token, res) => {
     if (!token) {
-      throw nErro({ status: 401, message: 'Token not found' }, res);
+      return ({ status: 401, message: 'Token not found' });
     }
     try {
       const validate = jwt.verify(token, SECRET); 
       return validate;
     } catch (e) {    
-      throw nErro({ status: 401, message: 'Expired or invalid token' }, res);
+      return ({ status: 401, message: 'Expired or invalid token' });
     }
   };
 
