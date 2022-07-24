@@ -3,7 +3,7 @@ const connection = require('./connection');
 const getInvestedAsset = async (id) => {
     const [result] = await 
     connection.execute(`
-    SELECT * FROM DbInvest.ativos
+    SELECT * FROM heroku_78de3bb0c0dac82.ativos
     WHERE id = ?;`, [id]);
     return result;
 };
@@ -11,14 +11,14 @@ const getInvestedAsset = async (id) => {
 const hasThisAsset = async (clientId, assetId) => {
     const [result] = await 
     connection.execute(`
-    SELECT * FROM DbInvest.carteira
+    SELECT * FROM heroku_78de3bb0c0dac82.carteira
     WHERE cliente_id = ? AND ativo_id = ?;`, [clientId, assetId]);
     return result;
 };
 
 const updateWallet = async (quantity, clientId, assetId) => {
     const [result] = await 
-    connection.execute(`UPDATE DbInvest.carteira
+    connection.execute(`UPDATE heroku_78de3bb0c0dac82.carteira
     SET quantidade = ?
     WHERE cliente_id = ? AND ativo_id = ?
     ;`, [quantity, clientId, assetId]);
@@ -27,7 +27,7 @@ const updateWallet = async (quantity, clientId, assetId) => {
 
 const updateAsset = async (quantity, assetId) => {
     const [result] = await 
-    connection.execute(`UPDATE DbInvest.ativos
+    connection.execute(`UPDATE heroku_78de3bb0c0dac82.ativos
     SET quantidade_disponivel = ?
     WHERE id = ?
     ;`, [quantity, assetId]);
@@ -36,13 +36,13 @@ const updateAsset = async (quantity, assetId) => {
 
 const addWallet = async (quantity, clientId, assetId) => {
     const [result] = await 
-    connection.execute(`INSERT INTO DbInvest.carteira (cliente_id, ativo_id, quantidade) VALUES
+    connection.execute(`INSERT INTO heroku_78de3bb0c0dac82.carteira (cliente_id, ativo_id, quantidade) VALUES
     (?, ?, ?);`, [clientId, assetId, quantity]);
     return result;
 };
 
 const deleteWallet = (clientId, assetId) => {
-    connection.execute('DELETE FROM DbInvest.carteira WHERE cliente_id = ? AND ativo_id = ?;', [clientId, assetId]);
+    connection.execute('DELETE FROM heroku_78de3bb0c0dac82.carteira WHERE cliente_id = ? AND ativo_id = ?;', [clientId, assetId]);
 };  
 
 
