@@ -16,7 +16,12 @@ const routers = express.Router();
  *      name: Investimentos
  *      description: Endpoints relacionados a compra e venda de investimentos
  */
-routers.use('/ativos', ativosRouter);
+/**
+ * @swagger
+ *  tags:
+ *      name: Ativos
+ *      description: Endpoints relacionados a ativos
+ */
 /**
  * @swagger
  *  components:
@@ -39,6 +44,12 @@ routers.use('/ativos', ativosRouter);
  *                  codAtivo: 1
  *                  qtdeAtivo: 10
  */
+/**
+ * @swagger
+ *  /ativos/
+ */
+routers.use('/ativos', ativosRouter);
+
 routers.use('/conta', contaRouter);
 
 routers.use('/investimentos', investimentosRouter);
