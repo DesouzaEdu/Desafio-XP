@@ -6,7 +6,7 @@ const swaggerConfig = {
     description: "API que simula requisições de uma carteira de investimentos",
     version: "1.0"
     },
-    server:[{
+    servers:[{
     url: "https://desafio-xp-edu.herokuapp.com/",
     description: "servidor heroku"
     }]
