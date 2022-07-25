@@ -91,6 +91,8 @@ Dessa forma inclui mais alguns campos no banco, como o campo nome na tabela de a
 ## Na nuvem
 Tanto o banco quanto a aplicação já estão na nuvem, então basta consumir o seguinte link na tua ferramente cliente de API REST: https://desafio-xp-edu.herokuapp.com/
 
+Obs.: No caso da primeira requisição ela pode ser um pouco mais demorada que o costume.
+
 ## :warning: Endpoint Login
 O endpoint `/login` deve ser o primeiro a ser rodado pois ele geram um token necessário para validações das outras requisições, isso deve ser feito devido a validação JWT.
 
