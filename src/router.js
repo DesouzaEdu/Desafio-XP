@@ -21,7 +21,6 @@ const routers = express.Router();
  *  components:
  *      schemas:
  *          Investimentos:
- *              tags: Investimentos
  *              type: object
  *              required:
  *                  -codCliente
@@ -47,7 +46,28 @@ const routers = express.Router();
  */
 /**
  * @swagger
- *  /ativos/id
+ *  /ativos/id:
+ *      get:
+ *          tags: [Ativos]
+ *          description: Endpoint retorna as informações do ativo segundo o id.
+ *          responses:
+ *              200:
+ *                  content:
+ *                      application/json:
+ *                      schema:
+ *                          type: object
+ *                          properties:
+ *                              codAtivo:
+ *                                  type: integer
+ *                              qtdeAtivo:
+ *                                  type: integer
+ *                              valor:
+ *                                  type: decimal
+ *                          example:
+ *                              codCliente: 1
+ *                              qtdeAtivo: 3100
+ *                              valor: 100.51
+ * 
  */
 routers.use('/ativos', ativosRouter);
 
