@@ -46,10 +46,10 @@ const routers = express.Router();
  */
 /**
  * @swagger
- *  /ativos/id:
+ *  /ativos/1:
  *      get:
  *          tags: [Ativos]
- *          description: Endpoint retorna as informações do ativo segundo o id.
+ *          description: Endpoint retorna as informações do ativo segundo o id, no caso representado pelo número 1.
  *          responses:
  *              200:
  *                  content:
