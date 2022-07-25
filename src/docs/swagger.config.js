@@ -9,7 +9,16 @@ const swaggerConfig = {
     servers:[{
     url: "https://desafio-xp-edu.herokuapp.com/",
     description: "servidor heroku"
-    }]
+    }],
+    components: {
+        securitySchemes: {
+            bearerAuth: {
+                type: 'http',
+                scheme: 'bearer',
+                bearerFormat: 'JWT'
+            }
+        }
+    }
     },
     apis: ["./src/router.js"]
     }

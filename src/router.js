@@ -49,7 +49,7 @@ const routers = express.Router();
  *  /ativos/{id}:
  *      get:
  *          tags: [Ativos]
- *          description: Endpoint retorna as informações do ativo segundo o id, no caso representado pelo número 1.
+ *          description: Endpoint retorna as informações do ativo segundo o id.
  *          parameters:
  *              - in: path
  *                name: id
