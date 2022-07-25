@@ -50,6 +50,8 @@ const routers = express.Router();
  *      get:
  *          tags: [Ativos]
  *          description: Endpoint retorna as informações do ativo segundo o id.
+ *          security:
+ *              - bearerAuth: []
  *          parameters:
  *              - in: path
  *                name: id
