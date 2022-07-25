@@ -18,15 +18,10 @@ const routers = express.Router();
  */
 /**
  * @swagger
- *  tags:
- *      name: Ativos
- *      description: Endpoints relacionados a ativos
- */
-/**
- * @swagger
  *  components:
  *      schemas:
  *          Investimentos:
+ *              tags: Investimentos
  *              type: object
  *              required:
  *                  -codCliente
@@ -46,7 +41,13 @@ const routers = express.Router();
  */
 /**
  * @swagger
- *  /ativos/
+ *  tags:
+ *      name: Ativos
+ *      description: Endpoints relacionados a ativos
+ */
+/**
+ * @swagger
+ *  /ativos/id
  */
 routers.use('/ativos', ativosRouter);
 
